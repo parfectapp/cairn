@@ -70,6 +70,20 @@ a{color:inherit;text-decoration:none}
 .card:hover::after{width:100%}
 .card.soldout{opacity:.55;pointer-events:none}
 .card .so{position:absolute;top:60px;right:38px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;border:1px solid var(--amber);padding:5px 9px;background:var(--bone)}
+/* lookbook */
+.lookbook{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px)}
+.lookgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.look{background:var(--bone);padding:14px;cursor:pointer;border:none;font-family:inherit;text-align:left;color:var(--ink);position:relative;transition:background .45s}
+.look:hover{background:var(--bone2)}
+.look img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .5s}
+.look:hover img{filter:saturate(1.05)}
+.look .lk-num{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;display:block;margin:12px 0 4px}
+.look .lk-name{font-family:'Instrument Serif',serif;font-size:21px;line-height:1.1}
+.look .lk-cta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;display:block;margin-top:6px}
+.look:hover .lk-cta{color:var(--amber)}
+.look::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
+.look:hover::after{width:100%}
+
 /* ridge band */
 .ridgeband{position:relative;overflow:hidden}
 .ridgeband img{width:100%;height:clamp(130px,19vw,220px);object-fit:cover;object-position:center bottom}
@@ -297,6 +311,7 @@ body.pilock{overflow:hidden}
     <a class="nl" href="#headwear">Tees</a>
     <a class="nl" href="#mountain">Mountain</a>
     <a class="nl" href="#face">Face</a>
+    <a class="nl" href="#lookbook">Lookbook</a>
     <a class="nl" href="#drop">The drop</a>
     <button class="cartbtn" onclick="cartOpen()">Cart <b id="cartN">(0)</b></button>
   </nav>
@@ -355,6 +370,39 @@ body.pilock{overflow:hidden}
     <p>No face, no logo — the system starts where you disappear. Sold alone, or claimed with the fit.</p>
   </div>
   <div class="grid" id="grid-face"></div>
+</section>
+
+<section class="lookbook" id="lookbook">
+  <div class="sh">
+    <div><p class="hk">The collection</p><h2>Lookbook 001</h2></div>
+    <p>Worn, not displayed — every fit built from numbered pieces. No face, as always.</p>
+  </div>
+  <div class="lookgrid">
+    <button class="look" type="button" onclick="sheetOpen('boulder')">
+      <img src="fotos/look-1.jpg" alt="Look 01 — BOULDER + RAVINE" loading="lazy">
+      <span class="lk-num">Look 01 — Concrete</span>
+      <span class="lk-name">BOULDER + RAVINE</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('serac')">
+      <img src="fotos/look-2.jpg" alt="Look 02 — SERAC on the ridge" loading="lazy">
+      <span class="lk-num">Look 02 — The ridge</span>
+      <span class="lk-name">SERAC + VEIL + VERGLAS</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('talus')">
+      <img src="fotos/look-3.jpg" alt="Look 03 — TALUS at dusk" loading="lazy">
+      <span class="lk-num">Look 03 — Cold hours</span>
+      <span class="lk-name">TALUS + BASIN</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('trace')">
+      <img src="fotos/look-4.jpg" alt="Look 04 — TRACE at noon" loading="lazy">
+      <span class="lk-num">Look 04 — High noon</span>
+      <span class="lk-name">TRACE + CREST</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+  </div>
 </section>
 
 <section class="edit">
@@ -749,7 +797,7 @@ addEventListener('keydown', e => { if(e.key === 'Escape'){ sheetClose(); cartClo
 
 /* reveal on scroll */
 addEventListener('DOMContentLoaded', () => {
-  const targets = [...document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .cta .in')];
+  const targets = [...document.querySelectorAll('.mq, .sh, .card, .look, .edit .row2 > *, .cta .in')];
   targets.forEach(el => {
     el.classList.add('reveal');
     const sibs = [...(el.parentElement.children)].filter(n => n.classList.contains('card'));
