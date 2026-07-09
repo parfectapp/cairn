@@ -154,7 +154,12 @@ a{color:inherit;text-decoration:none}
 .foot-legal{padding-top:20px!important;padding-bottom:40px!important;border-top:1px solid rgba(234,230,223,.12);display:flex;justify-content:space-between;gap:16px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(234,230,223,.4)}
 @media(max-width:640px){.foot-legal{flex-direction:column;align-items:flex-start;gap:8px}}
 
-@media(max-width:820px){.edit .row2{grid-template-columns:1fr}.top nav a.nl{display:none}.hero{min-height:70vh}}
+@media(max-width:820px){.edit .row2{grid-template-columns:1fr}.hero{min-height:70vh}
+.top .in{gap:14px;padding:13px 16px}
+.top nav{gap:18px;flex:1;min-width:0;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a.nl{flex:0 0 auto}
+.top nav .cartbtn{flex:0 0 auto;position:sticky;right:0;background:var(--bone);box-shadow:-12px 0 10px -6px var(--bone)}}
 @media(prefers-reduced-motion:reduce){.mq div{animation:none}}
 
 /* halftone / paper texture */
@@ -513,7 +518,7 @@ body.pilock{overflow:hidden}
   <div class="sheet">
     <button class="x" onclick="sheetClose()">CLOSE ✕</button>
     <div class="ph">
-      <img id="shImg" src="" alt="">
+      <img id="shImg" alt="">
       <div class="thumbs" id="shThumbs"></div>
     </div>
     <div class="body">
@@ -718,7 +723,8 @@ function claimNow(){
   if(!CUR) return;
   if(!CURSZ){ toast('PICK A SIZE FIRST'); return; }
   const num = CUR.next + CART.filter(i => i.id === CUR.id).length;
-  CART.push({ id:CUR.id, name:CUR.name, type:CUR.type, img:CUR.img, price:CUR.price, size:CURSZ, num });
+  const photo = ALB.includes(CUR.id) ? 'fotos/alb-' + CUR.id + '.jpg' : CUR.img;
+  CART.push({ id:CUR.id, name:CUR.name, type:CUR.type, img:photo, bp:CUR.img, price:CUR.price, size:CURSZ, num });
   cartSave(); cartRender(); cartCount(); sheetClose(); cartOpen();
   toast(CUR.name + ' — Nº ' + String(num).padStart(3,'0') + ' CLAIMED');
 }
@@ -727,7 +733,7 @@ function cartRender(){
   if(!CART.length){ box.innerHTML = '<p class="cempty">Your claim is empty</p>'; }
   else {
     box.innerHTML = CART.map((i,ix) => `<div class="citem">
-      <img src="${i.img}" alt="${i.name}">
+      <img src="${i.img}" alt="${i.name}" onerror="this.onerror=null;this.src='${i.bp || i.img}'">
       <div class="ci-b">
         <div class="ci-n">${i.name}</div>
         <div class="ci-m">${i.size} · Nº <b>${String(i.num).padStart(3,'0')}</b></div>
@@ -766,7 +772,11 @@ function orderSend(e){
   lines.push("", "SHIP TO:",
     f.name.value, f.addr.value, `${f.city.value}, ${f.zip.value}, ${f.country.value}`,
     "Tel: " + f.phone.value, "Email: " + f.email.value);
-  window.open('https://wa.me/' + P.wa + '?text=' + encodeURIComponent(lines.join("\n")), '_blank');
+  const url = 'https://wa.me/' + P.wa + '?text=' + encodeURIComponent(lines.join("\n"));
+  // respaldo del pedido por si algo falla en el camino a WhatsApp
+  try { localStorage.setItem('cairn-last-order', JSON.stringify({ at: new Date().toISOString(), items: CART, total })); } catch(err){}
+  const w = window.open(url, '_blank');
+  if (!w) { location.href = url; return false; }   // popup bloqueado: misma pestaña, el carrito se conserva
   CART.length = 0; cartSave(); cartRender(); cartCount();
   orderClose();
   toast('ORDER SENT — WE CONFIRM BY WHATSAPP');
@@ -817,7 +827,9 @@ addEventListener('DOMContentLoaded', () => {
   let done = false;
   function finish(){ if(done) return; done = true; intro.classList.add('lift'); document.body.classList.remove('pilock'); setTimeout(() => { intro.style.display = 'none'; }, 1150); }
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const t = setTimeout(finish, reduce ? 300 : 2300);
+  let seen = false;
+  try { seen = !!sessionStorage.getItem('cairn-intro'); sessionStorage.setItem('cairn-intro', '1'); } catch(err){}
+  const t = setTimeout(finish, (reduce || seen) ? 300 : 2300);
   ['pointerdown','wheel','touchstart','keydown'].forEach(ev => window.addEventListener(ev, function h(){ clearTimeout(t); finish(); window.removeEventListener(ev, h); }, {passive:true}));
 })();
 </script>
