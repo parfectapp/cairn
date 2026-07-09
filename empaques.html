@@ -1,0 +1,264 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAIRN — Empaque</title>
+<meta name="description" content="El sistema de empaque de CAIRN — la prenda llega genérica; el empaque es la marca.">
+<link rel="icon" type="image/svg+xml" href="cairn-mark.svg">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#EAE6DF;--bone2:#e0dad1;--ink:#141210;--amber:#C96F2B;--mut:#6E675E;--night:#16130f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+.paper{position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.5;mix-blend-mode:multiply;
+  background-image:radial-gradient(rgba(20,18,16,.55) 0.5px,transparent 1px);background-size:3.5px 3.5px}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.top{position:sticky;top:0;z-index:30;background:rgba(234,230,223,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(20,18,16,.12)}
+.top .in{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(20px,4vw,48px)}
+.wm{font-family:'Instrument Serif',serif;font-size:24px;letter-spacing:.14em}
+.top nav{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.top nav a:hover{color:var(--amber)}
+
+.head{max-width:1300px;margin:0 auto;padding:clamp(50px,8vw,90px) clamp(20px,4vw,48px) clamp(30px,4vw,50px)}
+.hk{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.head h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,10vw,130px);line-height:.9;margin:14px 0 20px}
+.head p{color:var(--mut);max-width:52ch;line-height:1.65;margin:0}
+.head p b{color:var(--ink);font-weight:500}
+
+.mocks{max-width:1300px;margin:0 auto;padding:0 clamp(20px,4vw,48px) clamp(70px,9vw,120px);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.mock{background:var(--bone);padding:26px;position:relative}
+.mock.wide{grid-column:1 / -1}
+.mnum{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--amber)}
+.mock svg{width:100%;height:auto;margin:14px 0 16px;background:var(--bone2);border:1px solid rgba(20,18,16,.08)}
+.mock img{width:100%;height:auto;display:block;margin:14px 0 16px;border:1px solid rgba(20,18,16,.08)}
+.mname{font-family:'Instrument Serif',serif;font-size:28px;line-height:1.05;margin-bottom:10px}
+.mspec{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;line-height:1.8;text-transform:uppercase;color:var(--mut);border-top:1px solid rgba(20,18,16,.12);padding-top:12px}
+.mspec b{color:var(--amber);font-weight:400}
+
+.foot{background:var(--night);color:var(--bone)}
+.foot .in{max-width:1300px;margin:0 auto;padding:40px clamp(20px,4vw,48px);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(234,230,223,.55)}
+.foot a{color:var(--bone)}.foot a:hover{color:var(--amber)}
+</style></head><body>
+<div class="grain"></div><div class="paper"></div>
+
+<header class="top"><div class="in">
+  <a class="wm" href="index.html">CAIRN</a>
+  <nav><a href="index.html">← Tienda</a><a href="#e01">Empaques</a></nav>
+</div></header>
+
+<section class="head">
+  <p class="hk">Sistema de empaque</p>
+  <h1>El empaque<br>es la marca.</h1>
+  <p>La prenda llega genérica del proveedor — <b>sin logo, sin historia</b>. Todo lo que el cliente
+  siente al abrir la caja lo pone CAIRN: el cartón hueso, el papel de tinta, la etiqueta colgante
+  y <b>la tarjeta con su número de edición firmada a mano</b>. Cuesta centavos; convierte un paquete
+  de dropshipping en un objeto de colección.</p>
+</section>
+
+<section class="mocks" id="e01">
+
+  <!-- E-00 EL SISTEMA REAL -->
+  <div class="mock wide">
+    <span class="mnum">E-00</span>
+    <img src="fotos/empaque.jpg" alt="El sistema de empaque CAIRN — caja, seda, tag y tarjeta de edición">
+    <div class="mname">El sistema completo</div>
+    <div class="mspec">CAJA HUESO CON INTERIOR ÁMBAR · SEDA CON PATRÓN DE MOJONERAS + SELLO · HANG TAG Nº · TARJETA FIRMADA<br>ESTA FOTO VIVE EN LA GALERÍA DE CADA PRODUCTO DE LA TIENDA</div>
+  </div>
+
+  <!-- E-01 CAJA MAILER -->
+  <div class="mock">
+    <span class="mnum">E-01</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 96 L170 60 L280 96 L280 190 L170 226 L60 190 Z" fill="#EAE6DF" stroke="#141210" stroke-width="2.5"/>
+      <path d="M60 96 L170 132 L280 96" fill="none" stroke="#141210" stroke-width="2.5"/>
+      <path d="M170 132 L170 226" fill="none" stroke="#141210" stroke-width="2.5"/>
+      <path d="M60 96 L114 68 L224 104 L170 132 Z" fill="#e0dad1" stroke="#141210" stroke-width="1.6"/>
+      <g transform="translate(102,158) rotate(18)">
+        <text font-family="Instrument Serif,serif" font-size="26" letter-spacing="4" fill="#141210">CAIRN</text>
+      </g>
+      <g transform="translate(216,140) rotate(18)">
+        <rect x="8" y="20" width="26" height="6" rx="3" fill="#141210"/>
+        <rect x="12" y="12" width="18" height="6" rx="3" fill="#141210"/>
+        <rect x="16" y="4" width="10" height="6" rx="3" fill="#141210"/>
+        <circle cx="21" cy="-2" r="3" fill="#C96F2B"/>
+      </g>
+      <path d="M60 96 L170 132 L170 148 L60 112 Z" fill="#C96F2B" opacity="0.18"/>
+      <text x="170" y="248" font-family="IBM Plex Mono,monospace" font-size="8" fill="#6E675E" letter-spacing="2" text-anchor="middle">INTERIOR ÁMBAR — LA SORPRESA AL ABRIR</text>
+    </svg>
+    <div class="mname">Caja mailer</div>
+    <div class="mspec">CARTÓN KRAFT BLANQUEADO (HUESO) · 1 TINTA NEGRA + <b>INTERIOR ÁMBAR</b><br>SIN PLÁSTICO A LA VISTA · 30×22×8 CM · ~$18 MXN/PZA (MOQ 50)</div>
+  </div>
+
+  <!-- E-02 POLY MAILER -->
+  <div class="mock">
+    <span class="mnum">E-02</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="70" y="34" width="200" height="196" rx="6" fill="#141210"/>
+      <rect x="70" y="34" width="200" height="26" rx="6" fill="#0d0b0a"/>
+      <path d="M70 60 L270 60" stroke="#EAE6DF" stroke-width="1" opacity=".25" stroke-dasharray="4 4"/>
+      <text x="170" y="140" font-family="Instrument Serif,serif" font-size="34" letter-spacing="6" fill="#EAE6DF" text-anchor="middle">CAIRN</text>
+      <text x="170" y="162" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="3" fill="#6E675E" text-anchor="middle">STREETWEAR · EDITIONS OF A FEW</text>
+      <rect x="70" y="196" width="200" height="10" fill="#C96F2B"/>
+      <text x="170" y="224" font-family="IBM Plex Mono,monospace" font-size="7.5" letter-spacing="2" fill="#EAE6DF" text-anchor="middle" opacity=".55">THE CITY IS THE MOUNTAIN</text>
+    </svg>
+    <div class="mname">Bolsa de envío</div>
+    <div class="mspec">POLY MAILER TINTA MATE · FRANJA ÁMBAR AL PIE · CIERRE ADHESIVO<br>PARA HEADWEAR Y TEES · ~$4 MXN/PZA (MOQ 100)</div>
+  </div>
+
+  <!-- E-03 PAPEL DE SEDA + SELLO -->
+  <div class="mock">
+    <span class="mnum">E-03</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="stones" width="92" height="92" patternUnits="userSpaceOnUse" patternTransform="rotate(-14)">
+          <g transform="translate(18,26)" opacity=".5" stroke="#141210" stroke-width="2.6" stroke-linecap="round">
+            <path d="M0 18 L40 18"/>
+            <path d="M7 10 L33 10"/>
+            <path d="M14 2 L26 2"/>
+          </g>
+          <circle cx="38" cy="18" r="2.6" fill="#C96F2B" opacity=".7"/>
+        </pattern>
+      </defs>
+      <rect x="34" y="30" width="272" height="200" fill="#EAE6DF" stroke="#141210" stroke-width="2" transform="rotate(-2 170 130)"/>
+      <rect x="34" y="30" width="272" height="200" fill="url(#stones)" transform="rotate(-2 170 130)"/>
+      <circle cx="170" cy="130" r="34" fill="#C96F2B"/>
+      <text x="170" y="136" font-family="Instrument Serif,serif" font-size="16" letter-spacing="2.5" fill="#141210" text-anchor="middle">CAIRN</text>
+    </svg>
+    <div class="mname">Papel de seda + sello</div>
+    <div class="mspec">PATRÓN DE MOJONERAS A -14° · 1 TINTA SOBRE SEDA HUESO<br>SELLO REDONDO ÁMBAR CIERRA EL DOBLEZ · ~$3 MXN/ENVÍO</div>
+  </div>
+
+  <!-- E-04 HANG TAG -->
+  <div class="mock">
+    <span class="mnum">E-04</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <path d="M118 36 C160 22 210 30 232 44 L226 70 C196 56 158 52 126 62 Z" fill="none" stroke="#C96F2B" stroke-width="3"/>
+      <rect x="118" y="58" width="104" height="164" rx="8" fill="#EAE6DF" stroke="#141210" stroke-width="2.5" transform="rotate(6 170 140)"/>
+      <circle cx="170" cy="82" r="6" fill="#EAE6DF" stroke="#141210" stroke-width="2" transform="rotate(6 170 140)"/>
+      <g transform="rotate(6 170 140)">
+        <text x="170" y="122" font-family="Instrument Serif,serif" font-size="24" letter-spacing="3" fill="#141210" text-anchor="middle">CAIRN</text>
+        <path d="M138 134 L202 134" stroke="#141210" stroke-width="1" opacity=".25"/>
+        <text x="170" y="156" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="1.6" fill="#6E675E" text-anchor="middle">EDITION OF 150</text>
+        <text x="170" y="186" font-family="Instrument Serif,serif" font-size="30" fill="#C96F2B" text-anchor="middle">Nº 037</text>
+        <text x="170" y="208" font-family="IBM Plex Mono,monospace" font-size="7" letter-spacing="1.4" fill="#6E675E" text-anchor="middle">WHEN IT SELLS OUT,</text>
+        <text x="170" y="218" font-family="IBM Plex Mono,monospace" font-size="7" letter-spacing="1.4" fill="#6E675E" text-anchor="middle">THE PATTERN IS RETIRED</text>
+      </g>
+    </svg>
+    <div class="mname">Hang tag numerada</div>
+    <div class="mspec">CARTULINA HUESO 350G · <b>NÚMERO ÁMBAR ESTAMPADO A MANO</b> (SELLO NUMERADOR)<br>CORDÓN ENCERADO ÁMBAR · SE AMARRA A CADA PRENDA ANTES DE EMPACAR</div>
+  </div>
+
+  <!-- E-05 TARJETA DE EDICIÓN -->
+  <div class="mock">
+    <span class="mnum">E-05</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <rect x="52" y="52" width="236" height="156" rx="4" fill="#141210" transform="rotate(-3 170 130)"/>
+      <g transform="rotate(-3 170 130)">
+        <text x="74" y="92" font-family="IBM Plex Mono,monospace" font-size="8" letter-spacing="2.4" fill="#C96F2B">CLAIMED</text>
+        <text x="74" y="128" font-family="Instrument Serif,serif" font-size="32" fill="#EAE6DF">Nº 037 / 150</text>
+        <text x="74" y="152" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing="1.6" fill="#6E675E">BOULDER — ZIP HOODIE · CAIRN</text>
+        <path d="M74 184 L182 184" stroke="#EAE6DF" stroke-width="1" opacity=".4"/>
+        <text x="74" y="197" font-family="IBM Plex Mono,monospace" font-size="7" letter-spacing="1.6" fill="#6E675E">FIRMA</text>
+        <path d="M196 168 C216 152 238 176 258 158" stroke="#C96F2B" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <div class="mname">La tarjeta de edición</div>
+    <div class="mspec">LA PIEZA QUE HACE REAL EL CONCEPTO — TINTA, SERIF, <b>FIRMADA A MANO</b><br>NÚMERO ÚNICO POR PEDIDO · VA DENTRO DEL PAPEL DE SEDA</div>
+  </div>
+
+  <!-- E-06 STICKERS -->
+  <div class="mock">
+    <span class="mnum">E-06</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="118" cy="106" r="52" fill="#141210"/>
+      <g transform="translate(96,88)">
+        <rect x="0" y="26" width="44" height="8" rx="4" fill="#EAE6DF"/>
+        <rect x="7" y="15" width="30" height="8" rx="4" fill="#EAE6DF"/>
+        <rect x="14" y="4" width="16" height="8" rx="4" fill="#EAE6DF"/>
+        <circle cx="22" cy="-4" r="4.5" fill="#C96F2B"/>
+      </g>
+      <rect x="196" y="66" width="96" height="42" rx="4" fill="#C96F2B" transform="rotate(8 244 87)"/>
+      <text x="244" y="93" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.8" fill="#141210" text-anchor="middle" transform="rotate(8 244 87)">THE CITY IS</text>
+      <text x="244" y="104" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.8" fill="#141210" text-anchor="middle" transform="rotate(8 244 87)">THE MOUNTAIN</text>
+      <rect x="150" y="164" width="140" height="44" rx="4" fill="#EAE6DF" stroke="#141210" stroke-width="2.5" transform="rotate(-6 220 186)"/>
+      <text x="220" y="192" font-family="Instrument Serif,serif" font-size="22" letter-spacing="3" fill="#141210" text-anchor="middle" transform="rotate(-6 220 186)">CAIRN</text>
+    </svg>
+    <div class="mname">Stickers</div>
+    <div class="mspec">3 EN CADA PEDIDO: MOJONERA / LEMA ÁMBAR / WORDMARK<br>VINIL MATE · EL CLIENTE HACE EL MARKETING (LAPTOP, TERMO, CASCO)</div>
+  </div>
+
+  <!-- E-07 ETIQUETA TEJIDA (WIDE) -->
+  <div class="mock wide">
+    <span class="mnum">E-07</span>
+    <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg">
+      <rect x="60" y="60" width="240" height="80" rx="3" fill="#141210"/>
+      <path d="M60 66 L300 66 M60 134 L300 134" stroke="#EAE6DF" stroke-width="1" opacity=".2"/>
+      <text x="180" y="105" font-family="Instrument Serif,serif" font-size="26" letter-spacing="5" fill="#EAE6DF" text-anchor="middle">CAIRN</text>
+      <text x="180" y="124" font-family="IBM Plex Mono,monospace" font-size="7.5" letter-spacing="2" fill="#C96F2B" text-anchor="middle">EDITIONS OF A FEW</text>
+      <rect x="420" y="60" width="240" height="80" rx="3" fill="#EAE6DF" stroke="#141210" stroke-width="2"/>
+      <text x="540" y="92" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#141210" text-anchor="middle">EDITION OF 150</text>
+      <text x="540" y="118" font-family="Instrument Serif,serif" font-size="24" fill="#C96F2B" text-anchor="middle">Nº ______</text>
+      <text x="360" y="180" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing="2" fill="#6E675E" text-anchor="middle">FASE 2 — CUANDO HAYA PRIVATE LABEL (MOQ 100): SE COSE ADENTRO · HOY VIVE EN LA HANG TAG</text>
+    </svg>
+    <div class="mname">Etiqueta tejida interior</div>
+    <div class="mspec">TINTA CON SERIF HUESO + REVERSO HUESO CON NÚMERO A MANO<br><b>FASE 2</b>: EL PROVEEDOR LA COSE (PRIVATE LABEL) · HOY EL NÚMERO VIVE EN TAG + TARJETA</div>
+  </div>
+
+  <!-- E-08 CINTA -->
+  <div class="mock">
+    <span class="mnum">E-08</span>
+    <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="130" cy="120" r="66" fill="#e0dad1" stroke="#141210" stroke-width="2.5"/>
+      <circle cx="130" cy="120" r="30" fill="#EAE6DF" stroke="#141210" stroke-width="2"/>
+      <path d="M188 92 L318 92 L318 122 L188 122 Z" fill="#EAE6DF" stroke="#141210" stroke-width="2"/>
+      <g font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2" fill="#141210">
+        <text x="196" y="111">CAIRN · Nº ·</text>
+        <text x="276" y="111" fill="#C96F2B">CAIRN</text>
+      </g>
+      <path d="M188 92 L188 122" stroke="#C96F2B" stroke-width="3"/>
+      <text x="130" y="212" font-family="IBM Plex Mono,monospace" font-size="8" fill="#6E675E" letter-spacing="2" text-anchor="middle">PAPEL ENGOMADO — SIN PLÁSTICO</text>
+    </svg>
+    <div class="mname">Cinta de embalaje</div>
+    <div class="mspec">PAPEL ENGOMADO HUESO · WORDMARK REPETIDO 1 TINTA + ÁMBAR<br>SELLA LA CAJA MAILER · ~$2 MXN/ENVÍO</div>
+  </div>
+
+  <!-- E-09 UNBOXING (WIDE) -->
+  <div class="mock wide">
+    <span class="mnum">E-09</span>
+    <svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg">
+      <g font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="1.6" fill="#6E675E">
+        <text x="90" y="36">01 · CAJA</text>
+        <text x="270" y="36">02 · SEDA + SELLO</text>
+        <text x="470" y="36">03 · TAG + TARJETA Nº</text>
+      </g>
+      <path d="M40 120 L110 90 L180 120 L180 180 L110 210 L40 180 Z" fill="#EAE6DF" stroke="#141210" stroke-width="2"/>
+      <path d="M40 120 L110 150 L180 120 M110 150 L110 210" fill="none" stroke="#141210" stroke-width="2"/>
+      <path d="M40 120 L110 150 L110 162 L40 132 Z" fill="#C96F2B" opacity=".2"/>
+      <path d="M212 130 L232 130" stroke="#141210" stroke-width="2" marker-end="none"/>
+      <path d="M226 124 L236 130 L226 136" fill="none" stroke="#141210" stroke-width="2"/>
+      <rect x="264" y="80" width="150" height="120" fill="#EAE6DF" stroke="#141210" stroke-width="2" transform="rotate(-3 339 140)"/>
+      <circle cx="339" cy="140" r="20" fill="#C96F2B"/>
+      <path d="M444 130 L464 130" stroke="#141210" stroke-width="2"/>
+      <path d="M458 124 L468 130 L458 136" fill="none" stroke="#141210" stroke-width="2"/>
+      <rect x="494" y="70" width="70" height="120" rx="6" fill="#EAE6DF" stroke="#141210" stroke-width="2" transform="rotate(6 529 130)"/>
+      <text x="529" y="130" font-family="Instrument Serif,serif" font-size="16" fill="#C96F2B" text-anchor="middle" transform="rotate(6 529 130)">Nº 037</text>
+      <rect x="586" y="96" width="110" height="70" rx="3" fill="#141210" transform="rotate(-4 641 131)"/>
+      <text x="641" y="128" font-family="Instrument Serif,serif" font-size="13" fill="#EAE6DF" text-anchor="middle" transform="rotate(-4 641 131)">Nº 037 / 150</text>
+      <path d="M614 148 C624 140 636 152 646 143" stroke="#C96F2B" stroke-width="1.8" fill="none" transform="rotate(-4 641 131)"/>
+      <text x="360" y="244" font-family="IBM Plex Mono,monospace" font-size="9" letter-spacing="2.2" fill="#6E675E" text-anchor="middle">EL RITUAL: ABRIR ES RECLAMAR TU NÚMERO — CADA CAPA CUENTA LA MISMA HISTORIA</text>
+    </svg>
+    <div class="mname">El ritual de unboxing</div>
+    <div class="mspec">CAJA → INTERIOR ÁMBAR → SEDA CON SELLO → PRENDA CON TAG → TARJETA FIRMADA<br>COSTO TOTAL DEL SISTEMA: <b>~$28 MXN POR PEDIDO</b> · SE SIENTE DE $2,000</div>
+  </div>
+
+</section>
+
+<footer class="foot"><div class="in">
+  <span>CAIRN — SISTEMA DE EMPAQUE V1</span>
+  <span><a href="index.html">← VOLVER A LA TIENDA</a></span>
+</div></footer>
+</body></html>
