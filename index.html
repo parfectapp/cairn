@@ -72,7 +72,12 @@ a{color:inherit;text-decoration:none}
 .card .so{position:absolute;top:60px;right:38px;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase;border:1px solid var(--amber);padding:5px 9px;background:var(--bone)}
 /* lookbook */
 .lookbook{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px)}
-.lookgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+/* rail infinito: se desliza solo, se puede arrastrar, y da la vuelta sin costura */
+.lookrail{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;border:1px solid rgba(20,18,16,.14);cursor:grab}
+.lookrail::-webkit-scrollbar{display:none}
+.lookrail.dragging{cursor:grabbing}
+.looktrack{display:flex;gap:1px;background:rgba(20,18,16,.14);width:max-content}
+.looktrack .look{flex:0 0 clamp(240px,26vw,340px)}
 .look{background:var(--bone);padding:14px;cursor:pointer;border:none;font-family:inherit;text-align:left;color:var(--ink);position:relative;transition:background .45s}
 .look:hover{background:var(--bone2)}
 .look img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .5s}
@@ -382,31 +387,57 @@ body.pilock{overflow:hidden}
     <div><p class="hk">The collection</p><h2>Lookbook 001</h2></div>
     <p>Worn, not displayed — every fit built from numbered pieces. No face, as always.</p>
   </div>
-  <div class="lookgrid">
+  <div class="lookrail" id="lookRail">
+  <div class="looktrack" id="lookTrack">
     <button class="look" type="button" onclick="sheetOpen('boulder')">
-      <img src="fotos/look-1.jpg" alt="Look 01 — BOULDER + RAVINE" loading="lazy">
+      <img src="fotos/look-1.jpg" alt="Look 01 — BOULDER + RAVINE" loading="lazy" onerror="this.closest('.look').remove()">
       <span class="lk-num">Look 01 — Concrete</span>
       <span class="lk-name">BOULDER + RAVINE</span>
       <span class="lk-cta">Claim the fit →</span>
     </button>
     <button class="look" type="button" onclick="sheetOpen('trace')">
-      <img src="fotos/look-2.jpg" alt="Look 02 — TRACE + CREST + RAVINE on the trail" loading="lazy">
+      <img src="fotos/look-2.jpg" alt="Look 02 — TRACE + CREST + RAVINE on the trail" loading="lazy" onerror="this.closest('.look').remove()">
       <span class="lk-num">Look 02 — The trail</span>
       <span class="lk-name">TRACE + COL + RAVINE + CREST</span>
       <span class="lk-cta">Claim the fit →</span>
     </button>
     <button class="look" type="button" onclick="sheetOpen('talus')">
-      <img src="fotos/look-3.jpg" alt="Look 03 — TALUS at dusk" loading="lazy">
+      <img src="fotos/look-3.jpg" alt="Look 03 — TALUS at dusk" loading="lazy" onerror="this.closest('.look').remove()">
       <span class="lk-num">Look 03 — Cold hours</span>
       <span class="lk-name">TALUS + BASIN</span>
       <span class="lk-cta">Claim the fit →</span>
     </button>
     <button class="look" type="button" onclick="sheetOpen('serac')">
-      <img src="fotos/look-4.jpg" alt="Look 04 — SERAC + VEIL on the ridge" loading="lazy">
+      <img src="fotos/look-4.jpg" alt="Look 04 — SERAC + VEIL on the ridge" loading="lazy" onerror="this.closest('.look').remove()">
       <span class="lk-num">Look 04 — The ridge</span>
       <span class="lk-name">SERAC + VEIL</span>
       <span class="lk-cta">Claim the fit →</span>
     </button>
+    <button class="look" type="button" onclick="sheetOpen('scarp')">
+      <img src="fotos/look-5.jpg" alt="Look 05 — SCARP + RAVINE on volcanic rock" loading="lazy" onerror="this.closest('.look').remove()">
+      <span class="lk-num">Look 05 — Ground truth</span>
+      <span class="lk-name">SCARP + RAVINE</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('veil')">
+      <img src="fotos/look-6.jpg" alt="Look 06 — BOULDER + VEIL in the fog" loading="lazy" onerror="this.closest('.look').remove()">
+      <span class="lk-num">Look 06 — No face</span>
+      <span class="lk-name">BOULDER + VEIL</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('basin')">
+      <img src="fotos/look-7.jpg" alt="Look 07 — TRACE + BASIN at high noon" loading="lazy" onerror="this.closest('.look').remove()">
+      <span class="lk-num">Look 07 — High noon</span>
+      <span class="lk-name">TRACE + BASIN</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+    <button class="look" type="button" onclick="sheetOpen('crest')">
+      <img src="fotos/look-8.jpg" alt="Look 08 — TALUS + CREST at first light" loading="lazy" onerror="this.closest('.look').remove()">
+      <span class="lk-num">Look 08 — Cold static</span>
+      <span class="lk-name">TALUS + CREST</span>
+      <span class="lk-cta">Claim the fit →</span>
+    </button>
+  </div>
   </div>
 </section>
 
@@ -800,6 +831,40 @@ cartRender(); cartCount();
   set('foot-wa', 'https://wa.me/' + P.wa);
   set('foot-mail', 'mailto:' + P.email);
   set('foot-ig', 'https://instagram.com/' + P.ig);
+})();
+
+/* ===== lookbook: rail infinito ===== */
+(function(){
+  const rail = document.getElementById('lookRail'), track = document.getElementById('lookTrack');
+  if(!rail || !track) return;
+  // duplicar el set completo: la segunda mitad es idéntica y permite el loop sin costura
+  track.innerHTML += track.innerHTML;
+  const half = () => track.scrollWidth / 2;
+  // envolver: al pasar la mitad (o llegar a 0 hacia atrás) saltamos medio track — invisible
+  function wrap(){
+    const h = half(); if(h <= 0) return;
+    if(rail.scrollLeft >= h) rail.scrollLeft -= h;
+    else if(rail.scrollLeft <= 0) rail.scrollLeft += h;
+  }
+  rail.addEventListener('scroll', wrap, {passive:true});
+  // arranque a 1px para poder dar la vuelta hacia atrás desde el inicio
+  requestAnimationFrame(() => { rail.scrollLeft = 1; });
+  // auto-scroll suave; se pausa al tocar/entrar y al preferir menos movimiento
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let auto = !reduce, resumeT;
+  function pause(ms){ auto = false; clearTimeout(resumeT); if(!reduce) resumeT = setTimeout(() => auto = true, ms); }
+  rail.addEventListener('pointerenter', () => pause(1e9));
+  rail.addEventListener('pointerleave', () => pause(600));
+  rail.addEventListener('touchstart', () => pause(3500), {passive:true});
+  let acc = 0;
+  (function step(){ if(auto){ acc += 0.6; const d = Math.floor(acc); if(d){ rail.scrollLeft += d; acc -= d; } } requestAnimationFrame(step); })();
+  // arrastre con el mouse (en touch el scroll nativo ya funciona)
+  let down = false, sx = 0, sl = 0, moved = 0;
+  rail.addEventListener('pointerdown', e => { if(e.pointerType !== 'mouse') return; down = true; moved = 0; sx = e.clientX; sl = rail.scrollLeft; rail.classList.add('dragging'); });
+  addEventListener('pointermove', e => { if(!down) return; const dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx)); rail.scrollLeft = sl - dx; });
+  addEventListener('pointerup', () => { down = false; rail.classList.remove('dragging'); });
+  // si fue arrastre, que el click no abra la ficha
+  rail.addEventListener('click', e => { if(moved > 8){ e.stopPropagation(); e.preventDefault(); } }, true);
 })();
 
 /* esc closes overlays */
