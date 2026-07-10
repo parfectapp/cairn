@@ -1,0 +1,386 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAIRN — Branding</title>
+<meta name="description" content="La biblia de marca de CAIRN — el sistema completo: mojonera, figura, paleta, tipografía, voz, ediciones y fotografía.">
+<link rel="icon" type="image/svg+xml" href="cairn-mark.svg">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#EAE6DF;--bone2:#e0dad1;--ink:#141210;--amber:#C96F2B;--mut:#6E675E;--night:#16130f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--amber);color:var(--bone)}
+.mono{font-family:'IBM Plex Mono',monospace}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+
+.paper{position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:.5;mix-blend-mode:multiply;
+  background-image:radial-gradient(rgba(20,18,16,.55) 0.5px,transparent 1px);background-size:3.5px 3.5px}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.05;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.top{position:sticky;top:0;z-index:30;background:rgba(234,230,223,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(20,18,16,.12)}
+.top .in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(20px,4vw,48px)}
+.wm{font-family:'Instrument Serif',serif;font-size:24px;letter-spacing:.14em}
+.top nav{display:flex;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;overflow-x:auto;scrollbar-width:none}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{flex:0 0 auto}
+.top nav a:hover{color:var(--amber)}
+
+.head{max-width:1200px;margin:0 auto;padding:clamp(56px,9vw,110px) clamp(20px,4vw,48px) clamp(20px,3vw,40px)}
+.hk{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.head h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,10vw,128px);line-height:.9;margin:14px 0 20px}
+.head p{color:var(--mut);max-width:56ch;line-height:1.65;margin:0}
+.head p b{color:var(--ink);font-weight:500}
+
+section.cap{max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,90px) clamp(20px,4vw,48px)}
+section.cap + section.cap{border-top:1px solid rgba(20,18,16,.12)}
+.label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:26px}
+.label::before{content:"";display:inline-block;width:26px;height:1px;background:var(--amber);vertical-align:middle;margin-right:12px}
+.cap h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5vw,60px);line-height:1;margin:0 0 18px}
+.cap p.lead{color:var(--mut);max-width:60ch;line-height:1.7;margin:0 0 8px}
+.cap p.lead b{color:var(--ink);font-weight:500}
+.cap p.lead .sig{color:var(--amber)}
+
+/* manifiesto */
+.mani{font-family:'Instrument Serif',serif;font-size:clamp(24px,3.4vw,40px);line-height:1.3;max-width:26ch;margin:0}
+.mani b{font-weight:400;border-bottom:2px solid var(--amber)}
+
+/* spec grid (mojonera / figura) */
+.spec-grid{display:grid;grid-template-columns:minmax(300px,1fr) minmax(280px,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media(max-width:760px){.spec-grid{grid-template-columns:1fr}}
+.spec-card{background:var(--bone2);border:1px solid rgba(20,18,16,.14);padding:26px;position:relative}
+.spec-card .serial{font-size:10px;letter-spacing:.2em;color:var(--mut);text-transform:uppercase;margin-bottom:14px}
+.spec-card svg,.spec-card img{width:100%;height:auto;display:block}
+.spec-card .serial2{font-size:10px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;margin-top:14px;text-align:right}
+.callouts{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.callouts li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid rgba(20,18,16,.12)}
+.callouts li:first-child{border-top:1px solid rgba(20,18,16,.12)}
+.callouts .idx{color:var(--amber);font-size:11px;letter-spacing:.14em;padding-top:4px;flex:0 0 52px}
+.callouts .name{font-family:'Instrument Serif',serif;font-size:22px;margin-bottom:4px}
+.callouts .desc{color:var(--mut);font-size:14px;line-height:1.6}
+
+/* paleta */
+.paleta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.swatch{aspect-ratio:4/3;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px}
+.swatch .sn{font-family:'Instrument Serif',serif;font-size:22px}
+.swatch .sx{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.paleta-note{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--mut);text-transform:uppercase;margin-top:16px}
+.paleta-note b{color:var(--amber);font-weight:400}
+
+/* tipografía */
+.type-spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.type-spec .cell{background:var(--bone);padding:26px}
+.tname{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase;margin-bottom:16px}
+.sample-serif{font-family:'Instrument Serif',serif;font-size:clamp(30px,4vw,44px);line-height:1.05}
+.sample-mono{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.sample-mono b{color:var(--amber);font-weight:400}
+.sample-body{font-size:15px;line-height:1.7;color:var(--mut);max-width:44ch}
+
+/* voz */
+.voz{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.voz .v{background:var(--bone);padding:24px}
+.voz .vt{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.voz .si .vt{color:var(--amber)}
+.voz .no .vt{color:var(--mut)}
+.voz .q{font-family:'Instrument Serif',serif;font-size:21px;line-height:1.35}
+.voz .no .q{color:var(--mut);text-decoration:line-through;text-decoration-thickness:1px}
+.voz .why{font-size:13px;color:var(--mut);line-height:1.6;margin-top:10px}
+
+/* ediciones */
+.ed-demo{background:var(--bone2);border:1px solid rgba(20,18,16,.14);padding:clamp(22px,4vw,40px);max-width:560px}
+.ed-demo .row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.ed-demo .row b{color:var(--amber);font-weight:400}
+.ed-demo .bar{height:2px;background:rgba(20,18,16,.15);margin:14px 0 10px;position:relative}
+.ed-demo .bar span{position:absolute;left:0;top:0;bottom:0;width:26%;background:var(--amber)}
+.ed-demo .cta{display:inline-flex;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--bone);padding:14px 24px}
+.ed-rules{list-style:none;margin:26px 0 0;padding:0;max-width:640px}
+.ed-rules li{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.12);font-size:14.5px;line-height:1.6;color:var(--mut)}
+.ed-rules li:first-child{border-top:1px solid rgba(20,18,16,.12)}
+.ed-rules b{font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--amber);font-size:11px;letter-spacing:.14em;flex:0 0 30px;padding-top:3px}
+.ed-rules i{font-style:normal;color:var(--ink)}
+
+/* fotografía */
+.fotos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.fotos-grid figure{margin:0;background:var(--bone);padding:12px}
+.fotos-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92)}
+.fotos-grid figcaption{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);padding-top:10px}
+.fotos-rules{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);line-height:2;margin-top:16px}
+.fotos-rules b{color:var(--amber);font-weight:400}
+
+/* texturas */
+.tex-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.tex{background:var(--bone);padding:22px}
+.tex .demo{height:150px;border:1px solid rgba(20,18,16,.1);margin-bottom:14px;position:relative;overflow:hidden}
+.tex .tn{font-family:'Instrument Serif',serif;font-size:20px;margin-bottom:4px}
+.tex .td{font-size:13px;color:var(--mut);line-height:1.6}
+.demo-half{background:radial-gradient(rgba(20,18,16,.55) 0.5px,transparent 1px);background-size:3.5px 3.5px;background-color:var(--bone)}
+.demo-ink{display:grid;place-items:center;background:var(--bone2)}
+.demo-ridge img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+
+/* aplicaciones */
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.app{background:var(--bone);padding:22px;display:block;transition:background .3s}
+.app:hover{background:var(--bone2)}
+.app img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:14px;border:1px solid rgba(20,18,16,.08)}
+.app .an{font-family:'Instrument Serif',serif;font-size:21px}
+.app .ad{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+.app:hover .ad{color:var(--amber)}
+
+/* footer */
+.foot{background:var(--night);color:var(--bone);margin-top:clamp(48px,7vw,90px)}
+.foot .big{font-family:'Instrument Serif',serif;font-size:clamp(40px,7vw,88px);line-height:1;padding:clamp(50px,8vw,100px) clamp(20px,4vw,48px) 30px;max-width:1200px;margin:0 auto}
+.foot .big span{color:var(--amber)}
+.foot .in{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,48px) 44px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(234,230,223,.55)}
+.foot a{color:var(--bone)}.foot a:hover{color:var(--amber)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style></head><body>
+<div class="grain"></div><div class="paper"></div>
+
+<header class="top"><div class="in">
+  <a class="wm" href="index.html">CAIRN</a>
+  <nav>
+    <a href="#manifiesto">Manifiesto</a>
+    <a href="#mojonera">Mojonera</a>
+    <a href="#figura">Figura</a>
+    <a href="#paleta">Paleta</a>
+    <a href="#tipografia">Tipografía</a>
+    <a href="#voz">Voz</a>
+    <a href="#ediciones">Ediciones</a>
+    <a href="#fotografia">Fotografía</a>
+    <a href="index.html">← Tienda</a>
+  </nav>
+</div></header>
+
+<section class="head">
+  <p class="hk">Brand system — v1</p>
+  <h1>La marca<br>es la ruta.</h1>
+  <p>Este documento es la <b>biblia de CAIRN</b>: todo lo que hace que una pieza, una caja o una
+  foto se sientan de la marca. La prenda llega genérica del proveedor — <b>el sistema que sigue
+  es lo que se vende</b>. Si algo no está aquí, no es CAIRN.</p>
+</section>
+
+<!-- ══════════════ 01 MANIFIESTO ══════════════ -->
+<section class="cap rv" id="manifiesto">
+  <div class="label">01 — Manifiesto</div>
+  <p class="mani">Una mojonera no grita. Es un montón de piedras que alguien apiló para decirte
+  <b>por aquí sí se cruza</b>. CAIRN hace lo mismo con ropa: pocas piezas, numeradas a mano,
+  sin rostro y sin logo — y cuando la edición se agota, <b>el patrón se retira</b>.
+  La ciudad es la montaña.</p>
+</section>
+
+<!-- ══════════════ 02 LA MOJONERA ══════════════ -->
+<section class="cap rv" id="mojonera">
+  <div class="label">02 — La mojonera · el símbolo</div>
+  <h2>Piedras apiladas, una señal.</h2>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="serial mono">SPEC — MARK / CANON</div>
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-label="CAIRN mark spec">
+        <g transform="translate(120,96)">
+          <rect x="0" y="150" width="160" height="34" rx="17" fill="#141210"/>
+          <rect x="24" y="104" width="112" height="34" rx="17" fill="#141210"/>
+          <rect x="48" y="58" width="64" height="34" rx="17" fill="#141210"/>
+          <circle cx="80" cy="24" r="17" fill="#C96F2B"/>
+        </g>
+        <g stroke="#141210" stroke-width="1" opacity=".45">
+          <line x1="200" y1="120" x2="304" y2="88"/>
+          <line x1="284" y1="262" x2="336" y2="294"/>
+          <line x1="116" y1="216" x2="64" y2="248"/>
+        </g>
+        <g font-family="IBM Plex Mono,monospace" font-size="10" fill="#141210" opacity=".7" letter-spacing="1.5">
+          <text x="308" y="84">LA SEÑAL ÁMBAR</text>
+          <text x="308" y="304">3 PIEDRAS</text>
+          <text x="16" y="262">PISO ANCHO</text>
+        </g>
+        <text x="200" y="360" font-family="Instrument Serif,serif" font-size="34" letter-spacing="10" fill="#141210" text-anchor="middle">CAIRN</text>
+      </svg>
+      <div class="serial2 mono">Tinta + ámbar — nada más</div>
+    </div>
+    <ul class="callouts">
+      <li><span class="idx mono">SP-01</span><div><div class="name">Tres piedras + la señal</div><div class="desc">Tres barras redondeadas que se angostan hacia arriba — el montículo. Arriba, un punto ámbar: la única pieza de color del sistema. Nunca se separan.</div></div></li>
+      <li><span class="idx mono">SP-02</span><div><div class="name">La señal ámbar</div><div class="desc">El punto es el lente de la figura, el sello del empaque y el acento de la página. Un solo color de acento en toda la marca: si hay dos, uno sobra.</div></div></li>
+      <li><span class="idx mono">SP-03</span><div><div class="name">Wordmark de museo</div><div class="desc">CAIRN en Instrument Serif, mayúsculas, tracking abierto (~.14em). Se coloca lejos del símbolo o debajo — nunca encimado.</div></div></li>
+      <li><span class="idx mono">SP-04</span><div><div class="name">Reducción</div><div class="desc">A 16 px la mojonera sigue leyéndose: tres barras y un punto. Para favicon y sello se usa sola, sin wordmark.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ 03 LA FIGURA ══════════════ -->
+<section class="cap rv" id="figura">
+  <div class="label">03 — La figura · sin rostro</div>
+  <h2>No face, no logo.</h2>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="serial mono">SPEC — LA FIGURA / CANON</div>
+      <img src="cairn-bp-figure.svg" alt="La figura CAIRN — encapuchada, frontal, banda ámbar">
+      <div class="serial2 mono">Frontal, nunca de perfil</div>
+    </div>
+    <ul class="callouts">
+      <li><span class="idx mono">SP-05</span><div><div class="name">El rostro se cubre</div><div class="desc">Balaclava, gaiter o la sombra de un ala — la persona desaparece y queda la pieza. En dibujo y en foto, siempre.</div></div></li>
+      <li><span class="idx mono">SP-06</span><div><div class="name">La banda ámbar</div><div class="desc">El lente es la señal ámbar puesta en el cuerpo: es lo único que "mira". En looks de foto, los goggles solo aparecen con TALUS.</div></div></li>
+      <li><span class="idx mono">SP-07</span><div><div class="name">Frontal, no perfil</div><div class="desc">De perfil la silueta encapuchada lee como pájaro. La figura canon es frontal, hombros anchos, quieta — presencia de monumento.</div></div></li>
+      <li><span class="idx mono">SP-08</span><div><div class="name">Dibujo de tinta</div><div class="desc">Los productos se presentan primero como mancha de tinta (feTurbulence) — el catálogo es un cuaderno de campo, la foto real aparece al tocar.</div></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ 04 PALETA ══════════════ -->
+<section class="cap rv" id="paleta">
+  <div class="label">04 — Paleta</div>
+  <h2>Hueso, tinta y una señal.</h2>
+  <div class="paleta">
+    <div class="swatch" style="background:#EAE6DF"><span class="sn" style="color:#141210">Hueso</span><span class="sx" style="color:#141210">#EAE6DF — el papel, dominante</span></div>
+    <div class="swatch" style="background:#141210"><span class="sn" style="color:#EAE6DF">Tinta</span><span class="sx" style="color:#EAE6DF">#141210 — el trazo, texto y dibujo</span></div>
+    <div class="swatch" style="background:#C96F2B"><span class="sn" style="color:#16130f">Ámbar</span><span class="sx" style="color:#16130f">#C96F2B — la señal, único acento</span></div>
+    <div class="swatch" style="background:#6E675E"><span class="sn" style="color:#EAE6DF">Piedra</span><span class="sx" style="color:#EAE6DF">#6E675E — texto secundario</span></div>
+    <div class="swatch" style="background:#16130f"><span class="sn" style="color:#EAE6DF">Noche</span><span class="sx" style="color:#EAE6DF">#16130f — footer y reverso</span></div>
+  </div>
+  <p class="paleta-note">Regla: hueso de fondo, tinta encima, <b>ámbar una sola vez por vista</b>. Ningún otro color entra al sistema — el color vive en las fotos, no en la interfaz.</p>
+</section>
+
+<!-- ══════════════ 05 TIPOGRAFÍA ══════════════ -->
+<section class="cap rv" id="tipografia">
+  <div class="label">05 — Tipografía</div>
+  <h2>Tres voces, un tono.</h2>
+  <div class="type-spec">
+    <div class="cell">
+      <div class="tname">Display — Instrument Serif</div>
+      <div class="sample-serif">Claim your number.<br>The pattern is retired.</div>
+    </div>
+    <div class="cell">
+      <div class="tname">Técnica — IBM Plex Mono</div>
+      <div class="sample-mono">EDITION OF 100 — NEXT Nº <b>027</b><br>FREE TRACKED SHIPPING · 2–4 WEEKS<br>NUMBERED &amp; SIGNED · <b>LAST NUMBERS</b></div>
+    </div>
+    <div class="cell">
+      <div class="tname">Cuerpo — Archivo</div>
+      <div class="sample-body">Hoodies, heavyweight tees and mountain gear — numbered by hand, in editions of a few. The mountain is the standard; the street is the field.</div>
+    </div>
+  </div>
+  <p class="paleta-note">La serif habla como museo (títulos y nombres), la mono habla como etiqueta de campo (números, specs, chips), Archivo explica. <b>Nunca se mezclan en una misma línea</b> salvo número ámbar dentro de mono.</p>
+</section>
+
+<!-- ══════════════ 06 VOZ ══════════════ -->
+<section class="cap rv" id="voz">
+  <div class="label">06 — Voz · cómo habla CAIRN</div>
+  <h2>Voz de museo, datos de campo.</h2>
+  <p class="lead">CAIRN no vende con adjetivos — vende con <b>hechos contados en frío</b>: números,
+  ediciones, materiales, rutas. Frases cortas. Inglés técnico para producto, español para hablar
+  con la gente. <span class="sig">Si suena a anuncio, se corta.</span></p>
+  <div class="voz" style="margin-top:26px">
+    <div class="v si"><div class="vt">Sí — así habla</div><div class="q">"When an edition sells out, the pattern is retired."</div><div class="why">Un hecho. La escasez es real y se cuenta como regla, no como urgencia.</div></div>
+    <div class="v si"><div class="vt">Sí — así habla</div><div class="q">"No face, no logo — the system starts where you disappear."</div><div class="why">La idea central dicha una vez, sin explicarse de más.</div></div>
+    <div class="v si"><div class="vt">Sí — así habla</div><div class="q">"Cut, not branded."</div><div class="why">Dos palabras que cargan toda la tesis: el corte es la marca.</div></div>
+    <div class="v no"><div class="vt">No — así no</div><div class="q">"¡La mejor calidad al mejor precio! 🔥🔥"</div><div class="why">Ni signos de exclamación, ni emojis, ni superlativo vacío. Nunca.</div></div>
+    <div class="v no"><div class="vt">No — así no</div><div class="q">"Compra YA, quedan pocas horas."</div><div class="why">La urgencia de CAIRN es el número de edición, no un contador de reloj.</div></div>
+    <div class="v no"><div class="vt">No — así no</div><div class="q">"Tejido ultra-premium de grado militar 28K."</div><div class="why">Specs inventadas devalúan las reales. Solo datos verificables del listing.</div></div>
+  </div>
+</section>
+
+<!-- ══════════════ 07 EDICIONES ══════════════ -->
+<section class="cap rv" id="ediciones">
+  <div class="label">07 — Ediciones · el ritual comercial</div>
+  <h2>Cada pieza tiene un número.</h2>
+  <div class="spec-grid">
+    <div>
+      <div class="ed-demo">
+        <div class="row"><span>EDITION OF 100</span><span>NEXT Nº <b>027</b></span></div>
+        <div class="bar"><span></span></div>
+        <div class="row"><span>26 CLAIMED</span><b>74 NUMBERS LEFT</b></div>
+        <span class="cta">Claim Nº 027 — $59 →</span>
+      </div>
+    </div>
+    <ul class="ed-rules">
+      <li><b>R-01</b><span><i>Comprar se dice "claim".</i> No agregas al carrito una prenda: reclamas un número de la edición. El CTA siempre trae el número y el precio.</span></li>
+      <li><b>R-02</b><span><i>El número es visible en todo:</i> ficha, hang tag, tarjeta firmada y mensaje de pedido. Nº 037 / 150 — serif para el número, mono para el contexto.</span></li>
+      <li><b>R-03</b><span><i>La edición se agota, el patrón se retira.</i> No hay restock, no hay "vuelve pronto". La pieza muere y eso la hace valiosa.</span></li>
+      <li><b>R-04</b><span><i>"Last numbers"</i> aparece cuando queda ≤30% — es el único aviso de escasez permitido.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ 08 FOTOGRAFÍA ══════════════ -->
+<section class="cap rv" id="fotografia">
+  <div class="label">08 — Fotografía · el lookbook</div>
+  <h2>35mm, sin rostro, un clima.</h2>
+  <div class="fotos-grid">
+    <figure><img src="fotos/look-6.jpg" alt="Look 06 — concreto y niebla" loading="lazy"><figcaption>Concreto + niebla — la ciudad</figcaption></figure>
+    <figure><img src="fotos/look-2.jpg" alt="Look 02 — sendero entre pinos" loading="lazy"><figcaption>Pino + roca volcánica — la ruta</figcaption></figure>
+    <figure><img src="fotos/look-7.jpg" alt="Look 07 — sol duro" loading="lazy"><figcaption>Sol duro — el campo abierto</figcaption></figure>
+    <figure><img src="fotos/look-8.jpg" alt="Look 08 — amanecer frío" loading="lazy"><figcaption>Amanecer frío — el vaho</figcaption></figure>
+  </div>
+  <p class="fotos-rules">Reglas: <b>rostro cubierto siempre</b> (balaclava, gaiter o ala) · goggles solo con TALUS · película 35mm, grano sutil · paleta desaturada, un clima por foto · vertical 4:5 · <b>las prendas se copian fieles del producto real</b> · sin textos ni logos añadidos.</p>
+</section>
+
+<!-- ══════════════ 09 TEXTURAS ══════════════ -->
+<section class="cap rv" id="texturas">
+  <div class="label">09 — Texturas · el papel</div>
+  <h2>Todo vive sobre papel.</h2>
+  <div class="tex-grid">
+    <div class="tex">
+      <div class="demo demo-half"></div>
+      <div class="tn">Halftone</div>
+      <div class="td">Puntos de medio tono multiplicados sobre el hueso — la página se siente impresa, no renderizada.</div>
+    </div>
+    <div class="tex">
+      <div class="demo demo-ink">
+        <svg viewBox="0 0 120 90" width="110"><defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter></defs><g filter="url(#rough)" fill="#141210"><rect x="20" y="58" width="80" height="16" rx="8"/><rect x="32" y="36" width="56" height="16" rx="8"/><rect x="44" y="14" width="32" height="16" rx="8"/></g><circle cx="60" cy="8" r="6" fill="#C96F2B"/></svg>
+      </div>
+      <div class="tn">Mancha de tinta</div>
+      <div class="td">feTurbulence + displacement: los bordes tiemblan como tinta sobre papel húmedo. Así se dibujan productos y símbolos.</div>
+    </div>
+    <div class="tex">
+      <div class="demo demo-ridge"><img src="cairn-bp-ridge.svg" alt="Cordillera de tinta" loading="lazy"></div>
+      <div class="tn">La cordillera</div>
+      <div class="td">La banda de montañas de tinta divide secciones y firma la parte baja de cajas y tarjetas — la ruta siempre presente.</div>
+    </div>
+    <div class="tex">
+      <div class="demo" style="display:grid;place-items:center;background:var(--night)"><span class="serif" style="color:#EAE6DF;font-size:30px;letter-spacing:8px">CAIRN<span style="color:#C96F2B">.</span></span></div>
+      <div class="tn">El reverso noche</div>
+      <div class="td">Footer, poly mailer y tarjeta de edición invierten el papel: tinta de fondo, hueso encima, la señal intacta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 10 APLICACIONES ══════════════ -->
+<section class="cap rv" id="aplicaciones">
+  <div class="label">10 — Aplicaciones</div>
+  <h2>Dónde vive el sistema.</h2>
+  <div class="apps">
+    <a class="app" href="index.html">
+      <img src="fotos/alb-boulder.jpg" alt="La tienda" loading="lazy">
+      <div class="an">La tienda</div>
+      <div class="ad">index.html — catálogo, ediciones, checkout →</div>
+    </a>
+    <a class="app" href="empaques.html">
+      <img src="fotos/empaque.jpg" alt="El empaque" loading="lazy">
+      <div class="an">El empaque</div>
+      <div class="ad">empaques.html — caja, seda, tag y tarjeta →</div>
+    </a>
+    <a class="app" href="index.html#lookbook">
+      <img src="fotos/look-1.jpg" alt="El lookbook" loading="lazy">
+      <div class="an">El lookbook</div>
+      <div class="ad">8 looks — scroll infinito →</div>
+    </a>
+  </div>
+</section>
+
+<footer class="foot rv">
+  <div class="big">La marca es la ruta.<br><span>Apila las piedras igual, siempre.</span></div>
+  <div class="in">
+    <span>CAIRN — BRAND SYSTEM V1 · 2026</span>
+    <span><a href="index.html">Tienda</a> · <a href="empaques.html">Empaque</a></span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body></html>
